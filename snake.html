@@ -7,8 +7,7 @@
     <title>Snake Game</title>
     <style>
         body {
-            text-align: center;
-            background: url(alien.jpg), no-repeat;
+                    background: url(alien.jpg), no-repeat;
         }
 
         footer {
@@ -17,22 +16,40 @@
             height: 80px;
             margin: auto;
             padding: .2px;
-            border: 1px, solid, black;
             clear: both;
+            border: 1px, solid, black;
             background-color: rgb(223, 221, 221);
             border-radius: 20px;
             margin-top: 30px;
             box-shadow: 6px 6px 10px black;
+
+        }
+
+        footer p {
+            text-align: center;
         }
 
         a:link {
             text-decoration: none;
         }
+        
+        canvas {
+            float: left;
+            margin-left: 200px;
+        }
+
+        footer.esquerda {
+            float: left;
+            margin-left: 300px;
+        }
+
+      
     </style>
 </head>
 
 <body>
-    <canvas id="stage" width="500px" height="500px"></canvas>
+    <canvas id="stage" width="500px" height="500px" class="esquerda"></canvas>
+
     <script type="text/javascript">
 
         window.onload = function () {
@@ -78,7 +95,7 @@
                 ctx.fillStyle = "red";
                 ctx.fillRect(ax * tp, ay * tp, tp, tp);
 
-                ctx.fillStyle = "gray";
+                ctx.fillStyle = "#37f500";
                 for (var i = 0; i < trail.length; i++) {
                     ctx.fillRect(trail[i].x * tp, trail[i].y * tp, tp - 1, tp - 1)
                     if (trail[i].x == px && trail[i].y == py) {
@@ -119,6 +136,23 @@
                         vx = 0;
                         vy = vel;
                         break;
+                    case 65: //esquerda
+                        vx = -vel;
+                        vy = 0;
+                        break;
+                    case 87: //cima
+                        vx = 0;
+                        vy = -vel;
+                        break;
+                    case 68: //direita
+                        vx = vel;
+                        vy = 0;
+                        break;
+                    case 83: //baixo
+                        vx = 0;
+                        vy = vel;
+                        break;
+                    
                     default: arguments
 
                         break;
@@ -132,23 +166,9 @@
 
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     </script>
 
-    <footer>
+    <footer class="esquerda">
         <p> by Douglas Piasente <br />
             <a href="http://facebook.com/dpiasente" target="_blank"> Facebook </a>| <a
                 href="https://github.com/DouglasPiasente" target="_blank"> GitHub </a></p>
