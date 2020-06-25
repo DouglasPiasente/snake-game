@@ -43,6 +43,8 @@
             margin-left: 300px;
         }
 
+        
+
       
     </style>
 </head>
@@ -50,7 +52,12 @@
 <body>
     <canvas id="stage" width="500px" height="500px" class="esquerda"></canvas>
 
+    <div>
+        <p>Pontos: <span id="pontos"></span></p>
+    </div>
+
     <script type="text/javascript">
+        var pontos = 0
 
         window.onload = function () {
 
@@ -100,8 +107,9 @@
                     ctx.fillRect(trail[i].x * tp, trail[i].y * tp, tp - 1, tp - 1)
                     if (trail[i].x == px && trail[i].y == py) {
                         vx = vy = 0;
-                        tail = 5
-
+                        tail = 5;
+                        pontos = 0;
+                
                     } //se bater a cabeça na cauda, o jogo é interrompido
                 }
 
@@ -112,6 +120,8 @@
 
                 if (ax == px && ay == py) {
                     tail++;
+                    pontos++;
+                    document.getElementById("pontos").innerHTML = pontos;
                     ax = Math.floor(Math.random() * qp);
                     ay = Math.floor(Math.random() * qp); //ao encostar na maça ele aumenta um ponto na cauda (tail++) e precisa randomizar uma nova maça com o Math.random
                 }
@@ -165,6 +175,7 @@
 
 
         }
+        
 
     </script>
 
