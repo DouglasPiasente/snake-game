@@ -7,6 +7,9 @@
     <title>Snake Game</title>
     <style>
         body {
+                    width: 1000px;
+                    height: 630px;
+                    margin: 0 auto;
                     background: url(alien.jpg), no-repeat;
         }
 
@@ -20,7 +23,7 @@
             border: 1px, solid, black;
             background-color: rgb(223, 221, 221);
             border-radius: 20px;
-            margin-top: 30px;
+            margin-top: 20px;
             box-shadow: 6px 6px 10px black;
 
         }
@@ -32,15 +35,26 @@
         a:link {
             text-decoration: none;
         }
+
+        a:hover {
+            text-decoration: underline;
+        }
         
         canvas {
             float: left;
-            margin-left: 200px;
+            margin-top: 20px;
+                        
         }
 
         footer.esquerda {
             float: left;
-            margin-left: 300px;
+            margin-left: 100px;
+        }
+
+        .pontos {
+            float: left;
+            margin: 50px 0px 0px 100px;
+            font-size: 50pt;
         }
 
         
@@ -52,7 +66,7 @@
 <body>
     <canvas id="stage" width="500px" height="500px" class="esquerda"></canvas>
 
-    <div>
+    <div class="pontos">
         <p>Pontos: <span id="pontos"></span></p>
     </div>
 
@@ -71,8 +85,8 @@
             var vx = vy = 0;
             var px = 10;
             var py = 15;
-            var tp = 20; //tamanho da peça
-            var qp = 25; //quantidade de peças
+            var tp = 25; //tamanho da peça
+            var qp = 20; //quantidade de peças
             var ax = ay = 15;
 
             var trail = [];
